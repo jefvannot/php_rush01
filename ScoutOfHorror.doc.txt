@@ -11,5 +11,5 @@ The class provides the following methods :
 - fight(array $kwargs) : which a dice_roll, a width, a height, a position x,
 a position y, a direction, an arena.
 
-It also has a toString method.
+It also has a toString() and a doc() method.
 ---------------------------------------------------------------------- ScoutOfHorror ->

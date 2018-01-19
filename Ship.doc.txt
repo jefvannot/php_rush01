@@ -23,5 +23,5 @@ arena. If it goes out, the ship is destroyed (return a booleen).
 It has an abstract method fight(array $kwargs) which should describe how the 
 ship can fire.
 
-It also has a toString method.
+It also has a toString() and a doc() method.
 ---------------------------------------------------------------------- Ship ->

@@ -14,5 +14,5 @@ The class provides the following methods :
 
 - getTileContents($x, $y) : check if position(x, y) is occupied by an object
 
-It also has a toString method.
+It also has a toString() and a doc() method.
 ---------------------------------------------------------------------- Arena ->

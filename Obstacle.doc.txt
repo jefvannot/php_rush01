@@ -13,5 +13,5 @@ The class provides the following methods :
 
 - fight(array $kwargs) : which do nothing but set an error.
 
-It also has a toString method.
+It also has a toString() and a doc() method.
 ---------------------------------------------------------------------- OnScreen ->

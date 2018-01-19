@@ -9,4 +9,6 @@ All attributes have getters.
 The class provides the following methods :
 
 - isOccupying($x, $y) : tells you wether the ship occupies the location(x, y)
+
+It also has a doc() method.
 ---------------------------------------------------------------------- OnScreen ->
