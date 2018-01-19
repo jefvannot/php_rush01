@@ -1,26 +1,27 @@
 <- Ship ----------------------------------------------------------------------
-The Ship represents the field in whizh ships move.
+The Ship extends from OnScreen. It represents a ships on the map. 
 
-The privates properties of the ship are as follow: name, max_shell, shell,
-default_shield, shield, speed, agility, width, height.
+Its privates properties are as follow: max_shell, shell, default_shield, 
+shield, speed, agility, pp.
+Its constructor method needs them all (in an array).
 
-Its constructor function uses its parent class's one (OnScreen class), but
-needs other keys in the kwarray, which are the private propertie described on
-top.
+The following attributes have getters : shell, shield, speed, pp, agility.
 
-The beginningOfTurn() method sets the shield property to the default_shield
-at the beginning of the game.
+The class provides the following methods :
 
-It also has a function stayInTheMap to check if it is still in the scope of the
-arena. If it goes out, the ship is destroyed.
+- shipIsShot($nb_shot, $arena) : decrements the shell and shield properties
+of a ship if it has been shot, and destroys the ship if it goes under 0.
 
-The shipIsShot decrements the shell property and then destroys the ship if
-it goes under 0.
+- addToShield($nb_pp_to_add) : increment the shell and shield properties
+if pp are provided
 
-The move method changes the position_x and the position_y properties.
+- stayInTheMap($x, $y, $arena) : check if the ship is still in the scope of the
+arena. If it goes out, the ship is destroyed (return a booleen).
 
-The getName(), getShell(), getShiel(), getSpeed(), getAgility(), getWidth()
-and getHeight() properties return the matching properties.
+- move($x, $y, $arena) : changes the position_x and the position_y properties.
 
+It has an abstract method fight(array $kwargs) which should describe how the 
+ship can fire.
 
+It also has a toString method.
 ---------------------------------------------------------------------- Ship ->

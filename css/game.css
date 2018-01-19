@@ -74,6 +74,12 @@ td img {
     justify-content: center;
     align-items: center;
 }
+.green-floor > div {
+	    width: 250px;
+}
+.green-floor form {
+	margin: 0;
+}
 
 .player-ctrl {
 	width: 142px;
@@ -110,7 +116,7 @@ td img {
 	width: 32px;
 }
 
-.player-ctrl .title, .stats {
+.stats {
 	background-color: #e7e7e7;
 }
 .stats p {

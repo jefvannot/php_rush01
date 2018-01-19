@@ -1,14 +1,17 @@
 <- OnScreen ----------------------------------------------------------------------
-The OnScreen object is any object operating in the field; it has a position_x, 
-a position_y, a width and a height protected properties.
+The Obstacle object extends from Ship.
+It represents an obstacle in the field. 
 
-When you construct it, you need to provide a position(x, y), as wel and a width
-and a height for your instance.
+Its has no privates properties.
 
-The isOccupying function tells you wether the ship occupies position located at
-x and y.
+Its constructor method needs a position x, position y, a width, a height
 
-The public methods getPositionX, getPositionY, getHeight, getWidth give you the
-position (x, y) and the measures (height, width).
+By default, name = 'obstacle', max_shell = 1000000, shield = 1000000000, and 
+pp, speed and agility are set to 0;
 
+The class provides the following methods :
+
+- fight(array $kwargs) : which do nothing but set an error.
+
+It also has a toString method.
 ---------------------------------------------------------------------- OnScreen ->

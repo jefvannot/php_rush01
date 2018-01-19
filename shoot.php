@@ -16,23 +16,18 @@ function getShipByName($name, $arena) {
 	return null;
 }
 
-
-$direction_shoot = $_POST['shoot'];
-
-$weapon_dice = (isset($_SESSION['weapon_dice']) && $_SESSION['weapon_dice'] != "played") ? $_SESSION['weapon_dice'] : 1;
-
-// echo $_SESSION['weapon_dice'];
-// echo "<br>";
-// echo "weapon_dice = ".$weapon_dice;
-// echo "<br>";
-// // print_r($_POST);
-if ($_SESSION['weapon_dice'] == "played")
+if (isset($_SESSION['weapon_dice']) && $_SESSION['weapon_dice'] != null)
 {
-	$weapon_dice = 6;
-	$_SESSION['pp_to_weapon']--;
-}
+	$weapon_dice = $_SESSION['weapon_dice'];
 
-$_SESSION['weapon_dice'] = "played";
+	if ($_SESSION['pp_to_weapon'] > 0)
+	{
+		$_SESSION['weapon_dice'] = null;
+		$_SESSION['pp_to_weapon']--;
+	}
+	else
+		$_SESSION['weapon_dice'] = "played";
+}
 
 $shipThatShoots = getShipByName($_POST['name'], $_SESSION['arena']);
 if ($shipThatShoots)

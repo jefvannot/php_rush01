@@ -1,10 +1,6 @@
 <?php
 
- class OnScreen {
-
-	# position_x/y is the top left corner
- 	// protected $idx = 1;
-	// protected $id;
+abstract class OnScreen {
 
 	protected $name;
 	protected $position_x;
@@ -27,23 +23,20 @@
 		$this->position_y = $kwargs['y'];
 		$this->width = $kwargs['width'];
 		$this->height = $kwargs['height'];
-		// $this->id = $idx;
-		// $idx++;
 	}
 	
 	public function isOccupying($x, $y) {
-		# returns whether the OnScreen is over ($x, $y)
 		return ( $x >= $this->position_x
 				&& $x < $this->position_x + $this->width
 				&& $y >= $this->position_y
 				&& $y < $this->position_y + $this->height);
 	}
 
-	public function getName() {			return $this->name; 		}
-	public function getPositionX() {	return $this->position_x;	}
-	public function getPositionY() {	return $this->position_y;	}
-	public function getWidth() {		return $this->width;		}
-	public function getHeight() {		return $this->height;		}
+	public function getName()		{return $this->name;}
+	public function getPositionX()	{return $this->position_x;}
+	public function getPositionY()	{return $this->position_y;}
+	public function getWidth()		{return $this->width;}
+	public function getHeight()		{return $this->height;}
 }
 
 ?>

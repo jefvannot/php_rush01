@@ -1,9 +1,8 @@
 <- FlankLaser ------------------------------------------------------------------
 The FlankLaser trait allows for Ships to use the FlankLaser weapon.
-In the future, this will be put under an umbrella class of Weapon.
 
-get_range returns the range given a specified dice throw
+It provides the following methods :
 
-type allows clients to fire the gun and get what it hit.
-
+- function type($dice_roll, $width, $height, $position_x, $position_y, $arena, 
+$direction_string) : allows clients to fire the gun and get what it hit.
 ----------------------------------------------------------------- FlankLaser ->

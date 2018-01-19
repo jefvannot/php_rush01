@@ -11,8 +11,6 @@ function resetGame() {
 
 	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
 	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
-	// $arena->addOnScreen( new ScoutOfHorror(35, 5, 'a') );
-	// $arena->addOnScreen( new ScoutOfHorror(37, 34, 'b') );
 
 	// space invader 1
 	$arena->addOnScreen( new Obstacle(40, 30, 1, 1) );
@@ -76,9 +74,8 @@ function resetGame() {
 
     $_SESSION['shot_has_been_fired'] = "";
 
-    $_SESSION['speed_dice'] = "";
-    $_SESSION['weapon_dice'] = "";
-
+    $_SESSION['speed_dice'] = null;
+    $_SESSION['weapon_dice'] = null;
 
     $_SESSION['pp_set'] = false;
     $_SESSION['pp_to_speed'] = null;

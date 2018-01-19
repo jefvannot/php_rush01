@@ -1,7 +1,5 @@
 <?php
 
-# calls move for the correct ship
-
 include_once('Arena.class.php');
 include_once('ScoutOfHorror.class.php');
 include_once('Obstacle.class.php');
@@ -9,11 +7,6 @@ include_once('Obstacle.class.php');
 include_once('getShipByName.php');
 
 session_start();
-
-
-// echo "test";
-// print_r($_POST);
-// print_r($_SESSION['arena']);
 
 if ($_POST['move'] == 'up') {
 	$dx = 0;
@@ -32,17 +25,17 @@ if ($_POST['move'] == 'down') {
 	$dy = 1;
 }
 
-if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] != "" && $_SESSION['speed_dice'] != "played")
+if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] !== null)
 {
 	$percent = $_SESSION['speed_dice'] / 6;
-	$_SESSION['speed_dice'] = "played";
+	if ($_SESSION['pp_to_speed'] > 0)
+	{
+		$_SESSION['speed_dice'] = null;
+		$_SESSION['pp_to_speed']--;
+	}
+	else
+		$_SESSION['speed_dice'] = "played";
 }
-else if ($_SESSION['speed_dice'] == "played" && $_SESSION['pp_to_speed'])
-{
-	$percent = 1;
-	$_SESSION['pp_to_speed']--;
-}
-
 
 $shipToMove = getShipByName($_POST['name'], $_SESSION['arena']);
 if ($shipToMove)

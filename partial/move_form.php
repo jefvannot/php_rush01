@@ -1,5 +1,5 @@
 <div class='player-ctrl' style='<?php if ($_SESSION['up_to'] == $player) echo "border: 2px solid #ff0000;"; ?>'>
-	<div class='title flex-center'>
+	<div class='title flex-center <?php echo $player ?>'>
 		<h4>Player <?php echo ucfirst($player) ?></h4>
 	</div>
 	<hr>
@@ -40,7 +40,7 @@
 			<input type="hidden" name="name" value="<?php echo $player ?>">
 			<div class="">
 				<div class="flex-center pp-input">
-					<p>for speed</p>
+					<p>for moves</p>
 					<input name="pp_speed" value="" type="text" />
 				</div>
 				<div class="flex-center pp-input">
@@ -94,14 +94,16 @@
 	</div>
 	<hr>
 
-
 	<div class="stats flex-around">
 		<p>Shell</p>
 		<p><?php printHealthStats($player, $_SESSION['arena']); ?></p>
 	</div>
 
-	<div class="stats flex-around">
+	<div class="stats flex-around <?php if ($_SESSION['pp_to_shield'] && $_SESSION['up_to'] == $player) {echo $player;} ?>" >
 		<p>Shield</p>
 		<p><?php printShieldStats($player, $_SESSION['arena']); ?></p>
 	</div>
 </div>
+
+
+

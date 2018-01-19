@@ -7,7 +7,6 @@ class ScoutOfHorror extends Ship {
 
 	use FlankLaser;
 
-	# Teo: this has another thing called $name to specify between first and second. Maybe we should call this $team later?
 	public function __construct($x, $y, $name) {
 		parent::__construct( array ( 'name' => $name
 									, 'x' => $x
@@ -35,9 +34,7 @@ class ScoutOfHorror extends Ship {
 		else {
 			foreach ($tab as $k => $v) {
 				($v[who])->shipIsShot($v[nb_shot], $kwargs['arena']);
-				// $ship->shipIsShot($nb_shot, $kwargs['arena']);
 			}
-			// $ship->shipIsShot($kwargs['arena']);
 		}
 	}
 	

@@ -26,28 +26,13 @@ if ($_SESSION['speed_dice'] == "played"
 	&& $_SESSION['pp_to_weapon'] == 0)
 {
 	$_SESSION['up_to'] = ($_SESSION['up_to'] == "a") ? "b" : "a";
-	$_SESSION['speed_dice'] = "";
-	$_SESSION['weapon_dice'] = "";
+	$_SESSION['speed_dice'] = null;
+	$_SESSION['weapon_dice'] = null;
 	$_SESSION['pp_to_speed'] = null;
 	$_SESSION['pp_to_shield'] = null;
 	$_SESSION['pp_to_weapon'] = null;
 	$_SESSION['pp_set'] = false;
 }
-
-
-
-// echo "up_to: ".$_SESSION['up_to'];
-// echo ";   pp_set: ".$_SESSION['pp_set'];
-
-// echo ";   speed dice: ".$_SESSION['speed_dice'];
-// echo ";   weapon dice: ".$_SESSION['weapon_dice'];
-
-// echo ";   speed: ".$_SESSION['pp_to_speed'];
-// echo ";   shiel: ".$_SESSION['pp_to_shield'];
-// echo ";   weapon: ".$_SESSION['pp_to_weapon'];
-
-
-
 
 function getElemOnMap($x, $y, $arena) {
 	foreach ($arena->getOnScreens() as $elem) {
@@ -136,6 +121,6 @@ $b_died = (!getShipByName("b", $_SESSION['arena'])) ? true : false;
 if ($_SESSION['shot_has_been_fired'] == "ON") {
 	($_SESSION['arena'])->cleanShoot();
 	$_SESSION['shot_has_been_fired'] = "";
-	header('Location: index.php');
+	// header('Location: index.php');
 } 
 ?>

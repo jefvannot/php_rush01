@@ -29,15 +29,8 @@ abstract class Ship extends OnScreen {
 	$this->pp = $kwargs['pp'];
 	$this->shield = $kwargs['shield'];
 	$this->speed = $kwargs['speed'];
-	// echo $this->shield;
-	# setup for starting the game
 	$this->shell = $this->max_shell;
 }
-
-	# should be called at the beginning of each turn to reset things
-#	public function beginningOfTurn() {
-#		$this->shield = $this->default_shield;
-#	}
 
 public abstract function fight(array $kwargs);
 
@@ -47,9 +40,7 @@ public function __toString() {
 		, $this->position_x, $this->position_y);
 }
 
-	# happens when a ship is hit with a shot
 public function shipIsShot($nb_shot, $arena) {
-		// echo "test";
 	while ($nb_shot) {
 		if ($this->shield == 0)
 			$this->shell = $this->shell - 1;
@@ -68,12 +59,8 @@ public function addToShield($nb_pp_to_add) {
 	$this->shield += $nb_pp_to_add;
 }
 
-
-
-
 public function stayInTheMap($x, $y, $arena)
 {
-		#check if the ship has gone out of the map
 	if($this->position_x + $x < 0 
 		|| $this->position_x + $x + $this->width > $arena->getWidth()
 		|| $this->position_y + $y < 0 
@@ -88,7 +75,6 @@ public function stayInTheMap($x, $y, $arena)
 public function move($x, $y, $arena) {
 	$dx = round($x * $this->getSpeed());
 	$dy = round($y * $this->getSpeed());
-	// echo $dx."   &   ".$dy;
 
 	if ($this->stayInTheMap($dx, $dy, $arena) == TRUE)
 	{

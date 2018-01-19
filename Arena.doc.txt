@@ -1,15 +1,18 @@
 <- Arena ----------------------------------------------------------------------
-The Arena represents the field in which the ships move.
+The Arena represents the map on which the ships move.
 
-It has private width, height and onScreen attributes.
-It also has a public function addOnScrenn to add object and a getTileContents 
-method to check if position(x, y) is occupied by an object.
+Its privates properties are as follow: width, height and a array onScreen[]
+(which contains all the objects instanceof OnScreen which are on the map)
 
-It has a toString method.
-
-You can also get the width, get the height and get the onScreens with the 
-methods getWidth(), getHeight(), getOnScreens().
+All attributes have getters.
 
 Width and Height are set by default to 150 and 100.
 
+The class provides the following methods :
+
+- addOnScreen($ship) : add object on the map
+
+- getTileContents($x, $y) : check if position(x, y) is occupied by an object
+
+It also has a toString method.
 ---------------------------------------------------------------------- Arena ->
