@@ -1,4 +1,5 @@
 <div class='player-ctrl' style='<?php if ($_SESSION['up_to'] == $player) echo "border: 2px solid #ff0000;"; ?>'>
+	<?php include('partial/sel_boat.php'); ?>
 	<div class='title flex-center <?php echo $player ?>'>
 		<h4>Player <?php echo ucfirst($player) ?></h4>
 	</div>
