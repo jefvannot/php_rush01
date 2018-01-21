@@ -9,11 +9,16 @@ include_once('Player.class.php');
 
 function resetGame() {
 	$arena = new Arena();
-	//$player1 = new Player('Alfred', 1, 'jaune');
-	//$player2 = new Player('Maurice', 2, 'rouge');
+	$player1 = new Player(array('Alfred', 'a', 'jaune'));
+	$player2 = new Player(array('Maurice', 'b', 'rouge'));
+	//echo("fffffffffffffffffffffffffff" . $player1->getName());
 
-	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
-	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
+	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'Gal_leath', 'img/ship/tau/Gal_leath.jpg', $player1->getTeam()) );
+	$arena->addOnScreen( new ScoutOfHorror(30, 10, 'Il_fannor', 'img/ship/tau/Il_fannor.jpg', $player1->getTeam()) );
+	$arena->addOnScreen( new ScoutOfHorror(30, 10, 'Or_esEl_leath', 'img/ship/tau/Or_esEl_leath.jpg', $player1->getTeam()) );
+	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'Aquila_Lander', 'img/ship/imperium/Aquila_Lander.jpg', $player2->getTeam()) );
+	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 8, $arena->getHeight() - 4, 'Croiseur_Dictator', 'img/ship/imperium/Croiseur_Dictator.jpg', $player2->getTeam()) );
+	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 12, $arena->getHeight() - 8, 'Frégate_Firestorm', 'img/ship/imperium/Frégate_Firestorm.jpg', $player2->getTeam()) );
 
 	// space invader 1
 	$arena->addOnScreen( new Obstacle(40, 30, 1, 1) );
@@ -72,6 +77,8 @@ function resetGame() {
 
 
     $_SESSION['arena'] = $arena;
+    $_SESSION['player1'] = $player1;
+    $_SESSION['player2'] = $player2;
 
     $_SESSION['up_to'] = "";
 

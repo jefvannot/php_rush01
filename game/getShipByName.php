@@ -9,13 +9,13 @@ function getShipByName($name, $arena) {
 	return null;
 }
 
-function getArrayShipByPlayer($player, $arena) {
+function getArrayShipByPlayer($team, $arena) {
 	foreach ( $arena->getOnScreens() as $current ) {
-		if ( $player === $current->getTeam() ) {
-			return $current;
+		if ( $team === $current->getTeam() ) {
+			$tab[] = $current;
 		}
 	}
-	return null;
+	return $tab;
 }
 
 

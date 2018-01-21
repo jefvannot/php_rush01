@@ -7,7 +7,7 @@ class ScoutOfHorror extends Ship {
 
 	use FlankLaser;
 
-	public function __construct($x, $y, $name) {
+	public function __construct($x, $y, $name, $sprite, $team) {
 		parent::__construct( array ( 'name' => $name
 									, 'x' => $x
 									, 'y' => $y
@@ -17,7 +17,9 @@ class ScoutOfHorror extends Ship {
 									, 'shield' => 5
 									, 'pp' => 5
 									, 'speed' => 15
-									, 'agility' => 4));
+									, 'agility' => 4
+									, 'sprite' => $sprite
+									, 'team' => $team));
 	}
 
 	public function fight(array $kwargs) {

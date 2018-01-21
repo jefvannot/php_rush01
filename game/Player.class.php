@@ -1,6 +1,6 @@
 <?php
 
-abstract class Player {
+class Player {
 
 	protected $name;
 	protected $team;

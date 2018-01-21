@@ -15,7 +15,9 @@ class Obstacle extends Ship {
 									, 'shield' => 1000000000
 									, 'pp' => 0
 									, 'speed' => 0
-									, 'agility' => 0));
+									, 'agility' => 0
+									, 'sprite' => ''
+									, 'team' => 'z'));
 	}
 
 	public function fight(array $kwargs) {

@@ -36,6 +36,11 @@
 		</div>
 		<img class="flex-center boat_img" src="<?php echo $sprite; ?>">
 		<div class="flex-center">
+			<?php
+			//$all_boats = getArrayShipByPlayer($this->player1->getName(), $arena);
+			//echo("numero player:" . $_SESSION['player1'] . PHP_EOL);
+			//print_r( $_SESSION['player1'] );
+			?>
 			<p><a id="lb_<?php echo ($player === 'a')?(0):(1); ?>" href="#"><?php echo "<</a>".$curr_boat; ?>
 			<a id="rb_<?php echo ($player === 'a')?(0):(1); ?>" href="#"><?php echo "></a>".$curr_boat; ?>
 			</p>
