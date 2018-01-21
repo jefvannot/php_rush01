@@ -55,14 +55,14 @@ if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] !== null)
 
 $ship = getShipByName($_POST['name'], $arena);
 if ($ship)
-	$ret = $ship->move($dx * $percent, $dy * $percent, $arena);
+	$ship->move($dx * $percent, $dy * $percent, $arena);
 
 if ($ret != "destroyed")
 {
 		$fp = fopen($db_path, "w");
 		flock($fp, LOCK_EX);
-	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['x'] = $ret[pos_x];
-	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['y'] = $ret[pos_y];
+	$db[$_GET['id']]['ship'][$_SESSION['up_to']] = $ship;
+	// $db[$_GET['id']]['ship'][$_SESSION['up_to']] = $ret[pos_y];
 	file_put_contents($db_path, serialize($db));
 		fclose($fp);
 }

@@ -9,8 +9,8 @@ include_once('Obstacle.class.php');
 function resetGame() {
 	$arena = new Arena();
 
-	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
-	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
+	$a = $arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
+	$b = $arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
 
 	// space invader 1
 	$arena->addOnScreen( new Obstacle(40, 30, 1, 1) );
@@ -74,14 +74,20 @@ function resetGame() {
 	$game['name'] = "name";
 	$game['player_a'] = $_SESSION['logged_on_user'];
 	$game['player_b'] = "";
-	$game['ship']['a']['x'] = 0;
-	$game['ship']['a']['y'] = 0;
-	$game['ship']['a']['shell_pts'] = 10;
-	$game['ship']['a']['shield_pts'] = 5;
-	$game['ship']['b']['x'] = $arena->getWidth() - 4;
-	$game['ship']['b']['y'] = $arena->getHeight() - 2;
-	$game['ship']['b']['shell_pts'] = 10;
-	$game['ship']['b']['shield_pts'] = 5;
+
+	$game['ship']['a'] = $a;
+	$game['ship']['b'] = $b;
+
+
+
+	// $game['ship']['a']['x'] = 0;
+	// $game['ship']['a']['y'] = 0;
+	// $game['ship']['a']['shell_pts'] = 10;
+	// $game['ship']['a']['shield_pts'] = 5;
+	// $game['ship']['b']['x'] = $arena->getWidth() - 4;
+	// $game['ship']['b']['y'] = $arena->getHeight() - 2;
+	// $game['ship']['b']['shell_pts'] = 10;
+	// $game['ship']['b']['shield_pts'] = 5;
 	$game['arena'] = $arena;
 
 	$_SESSION['game'] = $game;

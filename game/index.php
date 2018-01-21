@@ -18,6 +18,7 @@ if (!file_exists('db'))
 if (!file_exists($file_path))
 	file_put_contents($file_path, null);
 $db = unserialize(file_get_contents($file_path));
+$arena = $db[$_GET['id']]['arena'];
 
 
 

@@ -8,7 +8,7 @@ $arena = $db[$_GET['id']]['arena'];
 // print_r($arena);
 
 // print_r($db);
-// print_r($db[$_GET['id']]['ship'][a]);
+// print_r($db[$_GET['id']]['ship']);
 // echo "<br>";
 // echo "<br>";
 // print_r($db[$_GET['id']]['ship'][b]);

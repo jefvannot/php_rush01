@@ -99,12 +99,12 @@
 
 	<div class="stats flex-around">
 		<p>Shell</p>
-		<p><?php printHealthStats($player, $_SESSION['arena']); ?></p>
+		<p><?php printHealthStats($player, $arena); ?></p>
 	</div>
 
 	<div class="stats flex-around <?php if ($_SESSION['pp_to_shield'] && $_SESSION['up_to'] == $player) {echo $player;} ?>" >
 		<p>Shield</p>
-		<p><?php printShieldStats($player, $_SESSION['arena']); ?></p>
+		<p><?php printShieldStats($player, $arena); ?></p>
 	</div>
 </div>
 
