@@ -24,6 +24,7 @@ else
 	$_SESSION['pp_to_shield'] = null;
 	$_SESSION['pp_to_weapon'] = null;
 }
-header('Location: index.php');
+// header('Location: index.php');
+header('Location: index.php?id='.$_POST['game_id']);
 
 ?>

@@ -10,7 +10,7 @@
 		$pp_to_do = false;
 		if ($_SESSION['up_to'] == $player) {
 			// if ($_SESSION['pp_to_speed'] !== null && $_SESSION['pp_to_shield'] !== null && $_SESSION['pp_to_weapon'] !== null)
-			if (!$_SESSION['pp_set'])
+			// if (!$_SESSION['pp_set'])
 				$pp_to_do = true;
 
 			if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] != "" && $_SESSION['speed_dice'] != "played")
@@ -28,14 +28,15 @@
 				$shoot_playable = false;
 		}
 
-		$pp_to_spend = getPPToSpend($player, $_SESSION['arena']);
-
+		// $pp_to_spend = getPPToSpend($player, $_SESSION['arena']);
+		$pp_to_spend = 5;
 		?>
 		<div class="flex-center pp-input">
 			<p>PP to spend:</p>
 			<p><?php echo $pp_to_spend; ?></p>
 		</div>
 		<form action="pp_to_spend.php" method="POST">
+			<input type="hidden" name="game_id" value="<?php echo $_GET['id'] ?>">
 			<input type="hidden" name="pp_to_spend" value="<?php echo $pp_to_spend ?>">
 			<input type="hidden" name="name" value="<?php echo $player ?>">
 			<div class="">
@@ -62,6 +63,7 @@
 
 	<div>
 		<form action="move.php" method="POST">
+			<input type="hidden" name="game_id" value="<?php echo $_GET['id'] ?>">
 			<input type="hidden" name="name" value="<?php echo $player ?>">
 			<div class="moves-btn">
 				<div class="flex-center">
@@ -83,6 +85,7 @@
 	<div class="flex-around">
 		<p>Fire</p>
 		<form action="shoot.php" method="POST">
+			<input type="hidden" name="game_id" value="<?php echo $_GET['id'] ?>">
 			<input type="hidden" name="name" value="<?php echo $player ?>">
 			<div>
 				<input name="shoot" value="up" type="submit" <?php if (!$shoot_playable) echo "disabled"; ?>>

@@ -72,6 +72,8 @@ header {
 	top: 0;
 	width: calc(100% - 40px);
 	z-index: 4;
+
+	display: none;
 }
 header div.logo {
 	text-align: center;

@@ -12,10 +12,22 @@ include_once('getShipByName.php');
 // resetGame();
 // header('Location: index.php');
 
-if (!isset($_SESSION['arena'])) {
+$file_path = 'db/games';
+if (!file_exists('db'))
+	mkdir("db");
+if (!file_exists($file_path))
+	file_put_contents($file_path, null);
+$db = unserialize(file_get_contents($file_path));
+
+
+
+
+if (!$db || !isset($_SESSION['arena'])) {
 	resetGame();
 	$_SESSION['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
 }
+
+// print_r($_SESSION);
 
 if ($_SESSION['up_to'] == "")
 	$_SESSION['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
@@ -34,7 +46,27 @@ if ($_SESSION['speed_dice'] == "played"
 	$_SESSION['pp_set'] = false;
 }
 
+
+
+print_r($_GET);
+
+
+
+		// $fp = fopen($file_path, "w");
+		// flock($fp, LOCK_EX);
+		// $tmp['login'] = $_SESSION['logged_on_user'];
+		// $tmp['time'] = time();
+		// $tmp['msg'] = $_POST['msg'];
+		// $db[] = $tmp;
+		// file_put_contents($file_path, serialize($game));
+		// fclose($fp);
+
+
 function getElemOnMap($x, $y, $arena) {
+	// $db = unserialize(file_get_contents($file_path));
+
+
+
 	foreach ($arena->getOnScreens() as $elem) {
 		if ($elem->isOccupying($x, $y)) {
 			$who .= $elem->getName()." ";
@@ -102,8 +134,8 @@ include('../partial/header.php');
 				<?php include('partial/floor.php'); ?>
 			</div>
 			<div class='flex-center'>
-					<?php $player = 'b'; include('partial/move_form.php'); ?>
-				</div>
+				<?php $player = 'b'; include('partial/move_form.php'); ?>
+			</div>
 		</div>
 
 

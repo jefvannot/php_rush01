@@ -41,6 +41,7 @@ if ($shipThatShoots)
 									"direction" => $_POST['shoot']));
 }
 $_SESSION['shot_has_been_fired'] = 'ON';
-header('Location: index.php');
+// header('Location: index.php');
+header('Location: index.php?id='.$_POST['game_id']);
 
 ?>

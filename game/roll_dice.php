@@ -8,6 +8,7 @@ if ($_POST['action'] == 'move')
 if ($_POST['action'] == 'shoot')
 	$_SESSION['weapon_dice'] = mt_rand(1, 6);
 
-header('Location: index.php');
+// header('Location: index.php');
+header('Location: index.php?id='.$_POST['game_id']);
 
 ?>
