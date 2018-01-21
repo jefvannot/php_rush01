@@ -130,6 +130,14 @@ hr {
 	margin: 2px 0;
 }
 
+/* BOAT SELECT FORM */
+.boat_img {
+	width: 150px;
+	height: 150px;
+
+}
+
+
 /* Flash class and keyframe animation */
 .game-over{
 	color: red;
