@@ -10,6 +10,7 @@ $arena = $db[$_GET['id']]['arena'];
 // print_r($db);
 // print_r($db[$_GET['id']]['ship'][a]);
 // echo "<br>";
+// echo "<br>";
 // print_r($db[$_GET['id']]['ship'][b]);
 ?>
 

@@ -162,7 +162,17 @@ include('../partial/header.php');
 
 <?php
 if ($_SESSION['shot_has_been_fired'] == "ON") {
-	($_SESSION['arena'])->cleanShoot();
+	// ($_SESSION['arena'])->cleanShoot();
+
+	// $db_path = 'db/games';
+	// $db = unserialize(file_get_contents($db_path));
+	// $arena = $db[$_POST['game_id']]['arena'];
+	// $fp = fopen($db_path, "w");
+	// flock($fp, LOCK_EX);
+	// $db[$_POST['game_id']]['arena'] = $arena->cleanShoot();
+	// file_put_contents($db_path, serialize($db));
+	// fclose($fp);
+
 	$_SESSION['shot_has_been_fired'] = "";
 	// header('Location: index.php');
 } 

@@ -29,6 +29,7 @@ if ($_POST['move'] == 'down') {
 	$db_path = 'db/games';
 	$db = unserialize(file_get_contents($db_path));
 	$arena = $db[$_POST['game_id']]['arena'];
+	$arena->cleanShoot();
 		// print_r($db[$_POST['game_id']]);
 		// echo "<br>";
 		// echo "<br>";
@@ -60,9 +61,7 @@ if ($ret != "destroyed")
 {
 		$fp = fopen($db_path, "w");
 		flock($fp, LOCK_EX);
-	// echo "<br>test";
 	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['x'] = $ret[pos_x];
-	// echo $db[$_GET['id']]['ship'][$_SESSION['up_to']]['x'];
 	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['y'] = $ret[pos_y];
 	file_put_contents($db_path, serialize($db));
 		fclose($fp);
