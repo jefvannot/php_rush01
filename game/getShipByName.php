@@ -9,4 +9,14 @@ function getShipByName($name, $arena) {
 	return null;
 }
 
+function getArrayShipByPlayer($player, $arena) {
+	foreach ( $arena->getOnScreens() as $current ) {
+		if ( $player === $current->getTeam() ) {
+			return $current;
+		}
+	}
+	return null;
+}
+
+
 ?>

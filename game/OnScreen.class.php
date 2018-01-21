@@ -7,13 +7,15 @@ abstract class OnScreen {
 	protected $position_y;
 	protected $width;
 	protected $height;
+	protected $team;
 
 	public function __construct( array $kwargs ) {
 		if ( !isset( $kwargs['name'] ) 
 				|| !isset( $kwargs['x'] )
 				|| !isset( $kwargs['y'] )
 				|| !isset( $kwargs['width'] )
-				|| !isset( $kwargs['height'] ) ) {
+				|| !isset( $kwargs['height'] )
+				|| !isset( $kwargs['team'] ) ) {
 			error_log("OnScreen error: incorrect parameters to constructor"
 						. PHP_EOL );
 			exit(1);
@@ -23,6 +25,7 @@ abstract class OnScreen {
 		$this->position_y = $kwargs['y'];
 		$this->width = $kwargs['width'];
 		$this->height = $kwargs['height'];
+		$this->team = $kwargs['team'];
 	}
 	
 	public function isOccupying($x, $y) {
@@ -37,6 +40,7 @@ abstract class OnScreen {
 	public function getPositionY()	{return $this->position_y;}
 	public function getWidth()		{return $this->width;}
 	public function getHeight()		{return $this->height;}
+	public function getTeam()		{return $this->team;}
 }
 
 ?>
