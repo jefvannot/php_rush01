@@ -1,8 +1,5 @@
 <div class="green-floor">
 	
-	<!-- <h2>It's up to <?php #echo ucfirst($db[$_GET['id']]['up_to']) ?>:</h2> -->
-
-
 	<?php 
 	if (($db[$_GET['id']][creator] == $_SESSION[logged_on_user] && $db[$_GET['id']]['up_to'] == 'a')
 		|| ($db[$_GET['id']][creator] != $_SESSION[logged_on_user] && $db[$_GET['id']]['up_to'] == 'b'))

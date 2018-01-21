@@ -34,8 +34,8 @@ if (!$db || !$arena) {
 
 // print_r($_SESSION);
 
-if ($db[$_GET['id']]['up_to'] == "")
-	$db[$_GET['id']]['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
+// if ($db[$_GET['id']]['up_to'] == "")
+	// $db[$_GET['id']]['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
 
 if ($db[$_GET['id']]['speed_dice'] == "played"
 	&& $db[$_GET['id']]['weapon_dice'] == "played"

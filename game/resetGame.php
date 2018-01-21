@@ -68,48 +68,6 @@ function resetGame() {
 
 
 
-	// $_SESSION['arena'] = $arena;
-
-	$game['id'] = $_GET['id'];
-	$game['name'] = "name";
-	
-	$game['creator'] = $_SESSION['logged_on_user'];
-
-	$game['player_a'] = $_SESSION['logged_on_user'];
-	$game['player_b'] = "";
-
-	$game['ship']['a'] = $a;
-	$game['ship']['b'] = $b;
-
-	$game['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
-
-
-	// $game['ship']['a']['x'] = 0;
-	// $game['ship']['a']['y'] = 0;
-	// $game['ship']['a']['shell_pts'] = 10;
-	// $game['ship']['a']['shield_pts'] = 5;
-	// $game['ship']['b']['x'] = $arena->getWidth() - 4;
-	// $game['ship']['b']['y'] = $arena->getHeight() - 2;
-	// $game['ship']['b']['shell_pts'] = 10;
-	// $game['ship']['b']['shield_pts'] = 5;
-	$game['arena'] = $arena;
-
-	// $_SESSION['game'] = $game;
-
-	// $_SESSION['game_id'] = $_GET['id'];
-
-	$game['shot_has_been_fired'] = "";
-	$game['speed_dice'] = null;
-	$game['weapon_dice'] = null;
-	$game['pp_set'] = false;
-	$game['pp_to_speed'] = null;
-	$game['pp_to_shield'] = null;
-	$game['pp_to_weapon'] = null;
-	// $_SESSION['up_to'] = "";
-
-// echo "test";
-
-	// if ($_POST['msg']) {
 	$db_path = 'db/games';
 	if (!file_exists('db'))
 		mkdir("db");
@@ -117,35 +75,37 @@ function resetGame() {
 		file_put_contents($db_path, null);
 	$db = unserialize(file_get_contents($db_path));
 
-	if ($k = in_array($_GET['id'], array_column($db, 'id')))
+	if (!$db || !in_array($_GET['id'], array_column($db, 'id')))
 	{
-		// echo "test A<br>";
-		// echo $_GET['id'];
-		// $_SESSION['arena'] = $db[$k][arena];
-		// $_SESSION['game'] = $db[$k][game];
-		// $_SESSION['up_to'] = "";
-
-	}
-	else
-	{
+		// echo "test B<br>";
 		echo "test B<br>";
 		$fp = fopen($db_path, "w");
 		flock($fp, LOCK_EX);
-		// $tmp['login'] = $_SESSION['logged_on_user'];
-		// $tmp['time'] = time();
-		// $tmp['msg'] = $_POST['msg'];
+
+		$game['id'] = $_GET['id'];
+		$game['name'] = "name";
+
+		$game['creator'] = $_SESSION['logged_on_user'];
+
+		$game['ship']['a'] = $a;
+		$game['ship']['b'] = $b;
+
+		$game['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
+		$game['arena'] = $arena;
+
+		$game['shot_has_been_fired'] = "";
+		$game['speed_dice'] = null;
+		$game['weapon_dice'] = null;
+		$game['pp_set'] = false;
+		$game['pp_to_speed'] = null;
+		$game['pp_to_shield'] = null;
+		$game['pp_to_weapon'] = null;
+		
 		$db[] = $game;
 		file_put_contents($db_path, serialize($db));
-		// file_put_contents($db_path, serialize($db), FILE_APPEND);
 		fclose($fp);
-		// $_SESSION['arena'] = $arena;
-		// $_SESSION['game'] = $game;
-		// $_SESSION['up_to'] = "";
 
 	}
-	// }
-
-
 }
 
 ?>

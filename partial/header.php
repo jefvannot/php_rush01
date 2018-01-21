@@ -1,6 +1,8 @@
 <header>
 	<div class="logo">
-		<a href="<?php echo $home_path ?>index.php"><img src="<?php echo $home_path ?>img/SB-logo.png" alt=""></a>
+		<!-- <a href="<?php #echo $home_path ?>index.php"> -->
+			<img src="<?php echo $home_path ?>img/SB-logo.png" alt="">
+		<!-- </a> -->
 	</div>
 	<div class="menu">
 		<!-- <a href="products.php">Nos produits</a> -->

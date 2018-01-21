@@ -37,9 +37,6 @@ if (isset($db[$_POST['game_id']]['weapon_dice']) && $db[$_POST['game_id']]['weap
 		$db[$_POST['game_id']]['weapon_dice'] = "played";
 }
 
-// echo $db[$_POST['game_id']]['ship'][$_SESSION['up_to']]['x'];
-
-// print_r($arena);
 $ship = getShipByName($_POST['name'], $arena);
 if ($ship)
 {

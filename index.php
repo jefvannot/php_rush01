@@ -47,11 +47,12 @@ include('partial/header.php');
 			<iframe id="chat-frame" name="chat" src="chat/chat.php" width="100%" height="550px"></iframe>
 			<iframe id="speak-frame" name="speak" src="chat/speak.php" width="100%" height="50px" style="border: none;"></iframe>
 		</div>
-		
+
 		<?php
 		if (isset($_SESSION['logged_on_user'])) {
+			// echo $_SESSION['logged_on_user'];
 			?>
-			<div class="games-list">
+			<div class="games-list" id="gamelist">
 				<h1>Parties en cours</h1>
 				<div class="g-list">
 					<?php include  'game_list/index.php' ?>

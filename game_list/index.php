@@ -87,3 +87,5 @@
 	</div>
 </body>
 </html>
+
+<meta http-equiv="refresh" content="3">
