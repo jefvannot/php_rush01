@@ -1,0 +1,65 @@
+.index {
+	background-image: url('../img/galaxy.jpg');
+	height: calc(100vh - 135px);
+	background-size: cover;
+	background-position: bottom;
+	justify-content: space-evenly;
+}
+.index h1 {
+	/*font-size: 6em;*/
+	/*color: white;*/
+	margin: auto;
+}
+.index h2 {
+	/*font-size: 2em;*/
+	/*color: white;*/
+	margin: auto;
+}
+.index > div {
+	flex: 1;
+}
+
+
+
+.about {
+	background-image: url('../img/about.jpeg');
+	height: calc(100vh - 135px);
+	background-size: cover;
+	background-position: bottom;
+}
+.about h1 {
+	font-size: 4em;
+	color: white;
+}
+.about h2 {
+	color: white;
+	margin: 9em;
+}
+
+.contact {
+	background-image: url('../img/where.jpg');
+	height: calc(100vh - 135px);
+	background-size: cover;
+	background-position: bottom;
+}
+.contact h1 {
+	font-size: 4em;
+	color: white;
+}
+.contact h2 {
+	color: white;
+	margin: 9em;
+}
+
+.chat, .games-list {
+	padding: 42px;
+}
+
+.new-game input {
+	width: 300px;
+	height: 42px;
+	background-color: #93ceca;
+}
+.new-game input:hover {
+	background-color: #6caba7;
+}

@@ -1,0 +1,120 @@
+.container {
+	flex-direction: column;
+}
+.elem-top, .elem {
+	height: 50px;
+	border-bottom: 1px #d5d5d5 solid;
+	display: flex;
+	/*justify-content: space-between;*/
+	align-items: center;
+	padding: 0 32px;
+}
+.first-row {
+	background-color: #dcdcdc;
+	font-weight: bold;
+	color: #505050;
+}
+
+.elem-top {
+	color: grey;
+	margin-right: 52px;
+}
+.elem-row {
+	display: flex;
+	align-items: center;
+}
+.elem {
+	
+	border-left: 1px #d5d5d5 solid;
+	border-right: 1px #d5d5d5 solid;
+}
+
+.elem img {
+	height: 100%;
+}
+button {
+	margin: 5px;
+}
+button:focus {
+	outline: 0 !important;
+}
+
+.cat p, .product p {
+	flex: 1;
+}
+
+.user-top, .user {
+	width: 400px;
+}
+
+
+.product-top, .product {
+	width: 70vw;
+}
+.product p {
+	font-size: 0.9em;
+	padding: 0 5px;
+}
+
+
+.cat-first {
+	width: 175px;
+	padding: 0;
+}
+.cat {
+	width: 111px;
+	height: 35px;
+}
+.cat-content {
+	display: flex;
+	width: 70vw;
+}
+.cat-content > div {
+	flex: 1;
+	/*margin: 0 45px;*/
+}
+.cat-content form {
+	margin: 0 !important;
+	/*height: 26px;*/
+}
+.cat-content p {
+	display: flex;
+	justify-content: center;
+}
+.cat-content h5 {
+	margin: 0.3em 0;
+	text-align: left;
+	font-size: 0.8em;
+}
+.cat-content input {
+	margin: 5px 0;
+	width: 177px;
+}
+
+
+
+.order-first {
+	width: 175px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+.order {
+	width: 111px;
+	height: 35px;
+}
+.user-orders .order-list {
+	width: 85vw;
+	display: flex;
+	flex: wr;
+	flex-wrap: wrap;
+}
+.user-orders .one-order {
+	margin: 20px;
+}
+.user-orders .order {
+	justify-content: space-between;
+}
+
+
+

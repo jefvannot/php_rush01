@@ -1,0 +1,10 @@
+<- FlankLaser ------------------------------------------------------------------
+The FlankLaser trait allows for Ships to use the FlankLaser weapon.
+
+It provides the following methods :
+
+- function type($dice_roll, $width, $height, $position_x, $position_y, $arena, 
+$direction_string) : allows clients to fire the gun and get what it hit.
+
+It also has a doc() method.
+----------------------------------------------------------------- FlankLaser ->

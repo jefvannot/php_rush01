@@ -1,0 +1,27 @@
+<- Ship ----------------------------------------------------------------------
+The Ship extends from OnScreen. It represents a ships on the map. 
+
+Its privates properties are as follow: max_shell, shell, default_shield, 
+shield, speed, agility, pp.
+Its constructor method needs them all (in an array).
+
+The following attributes have getters : shell, shield, speed, pp, agility.
+
+The class provides the following methods :
+
+- shipIsShot($nb_shot, $arena) : decrements the shell and shield properties
+of a ship if it has been shot, and destroys the ship if it goes under 0.
+
+- addToShield($nb_pp_to_add) : increment the shell and shield properties
+if pp are provided
+
+- stayInTheMap($x, $y, $arena) : check if the ship is still in the scope of the
+arena. If it goes out, the ship is destroyed (return a booleen).
+
+- move($x, $y, $arena) : changes the position_x and the position_y properties.
+
+It has an abstract method fight(array $kwargs) which should describe how the 
+ship can fire.
+
+It also has a toString() and a doc() method.
+---------------------------------------------------------------------- Ship ->

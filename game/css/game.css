@@ -1,0 +1,163 @@
+table{
+	border-collapse: collapse;
+	width: calc(5 * 150px + 1px);
+}
+td {
+	width: 5px;
+	height: 5px;
+	border: 1px solid #424242;
+}
+td img {
+	position: relative;
+	width: 100%;
+	padding: 0px;
+	border: 0px;
+	margin: auto;
+}
+input {
+	margin: 0;
+}
+hr {
+	margin: 7px;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.flex-around {
+	display: flex;
+	justify-content: space-around;
+}
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.a {
+	background-color: hotpink;
+	border: 1px solid hotpink;
+}
+.b {
+	background-color: lightskyblue;
+	border: 1px solid lightskyblue;
+}
+.obstacle {
+	background-color: #424242;
+}
+.shoot {
+	background-color: grey;
+	background-image: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5) 2px);
+}
+.b.shoot {
+	background-color: dodgerblue;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5) 2px);
+
+}
+.a.shoot {
+	background-color: darkviolet;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5) 2px);
+}
+
+.content {
+	padding-top: 42px;
+
+}
+.map {
+	padding: 20px;
+}
+
+
+.green-floor {
+	padding: 20px;
+	/*background-color: #c1ecb7;*/
+	/*border-radius: 199px;*/
+	/*width: 350;*/
+	/*height: 350;*/
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.green-floor > div {
+	    width: 250px;
+}
+.green-floor form {
+	margin: 0;
+}
+
+.player-ctrl {
+	width: 142px;
+	padding: 20px;
+	border: 1px solid #424242;
+}
+.green-floor h2 {
+	margin-top: 0;
+}
+.player-ctrl h4, .green-floor h4 {
+	margin: 5px 0;
+}
+.controls {
+	display: flex;
+}
+.controls > div {
+	flex: 1;
+}
+.green-floor img {
+	width: 42px;
+}
+
+.pp img {
+	width: 12px;
+}
+.pp-input {
+	justify-content: space-between;
+}
+.pp-input p {
+	margin: 5px 0;
+}
+.pp-input input {
+	height: 20px;
+	width: 32px;
+	margin: 0;
+}
+
+.stats {
+	background-color: #e7e7e7;
+}
+.stats p {
+	margin: 2px 0;
+}
+
+/* Flash class and keyframe animation */
+.game-over{
+	color: red;
+	-webkit-animation: flash linear 1s infinite;
+	animation: flash linear 1s infinite;
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+/* Pulse class and keyframe animation */
+.pulseit{
+	-webkit-animation: pulse linear .5s infinite;
+	animation: pulse linear .5s infinite;
+}
+@-webkit-keyframes pulse {
+	0% { font-size: 3em; } 
+	50% { font-size: 4em; } 
+	100% { font-size: 3em; }
+}
+@keyframes pulse {
+	0% { font-size: 3em; } 
+	50% { font-size: 4em; } 
+	100% { font-size: 3em; }
+}
