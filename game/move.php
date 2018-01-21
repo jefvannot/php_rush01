@@ -58,12 +58,14 @@ if ($ship)
 
 if ($ret != "destroyed")
 {
-
+		$fp = fopen($db_path, "w");
+		flock($fp, LOCK_EX);
 	// echo "<br>test";
 	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['x'] = $ret[pos_x];
 	// echo $db[$_GET['id']]['ship'][$_SESSION['up_to']]['x'];
 	$db[$_GET['id']]['ship'][$_SESSION['up_to']]['y'] = $ret[pos_y];
 	file_put_contents($db_path, serialize($db));
+		fclose($fp);
 }
 
 header('Location: index.php?id='.$_POST['game_id']);
