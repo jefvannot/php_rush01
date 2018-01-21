@@ -10,12 +10,12 @@ $(document).ready(function(){
 function loadTodo(){
 	ft_list.empty();
 	$.ajax({
-		url: 'select.php',
+		url: 'game_list/select.php',
 		method: 'GET',
 		success : function(data){
 			data = jQuery.parseJSON(data);
 			jQuery.each(data, function(id, val) {
-				ft_list.prepend($('<a href=""><div data-id="' + id + '">' + val + '</div></a>'));
+				ft_list.prepend($('<a href="../game/index.php?id=' + id + '"><div data-id="' + id + '">' + val + '</div></a>'));
 			});
 		}
 	});
@@ -24,14 +24,14 @@ function loadTodo(){
 function newTodo(){
 	var todo = prompt("Quel nom voulez-vous donner a votre partie ?");
 	if (todo !== '') {
-		ajx('insert.php?', "GET", 'todo=' + todo, loadTodo);
+		ajx('game_list/insert.php?', "GET", 'todo=' + todo, loadTodo);
 	}
 }
 
 function deleteTodo(){
 	console.log($(this).data('id'));
 	if (confirm("Do you really want to delete this one ?")){
-		ajx('delete.php?', "GET", 'id=' + $(this).data('id'), loadTodo);
+		ajx('game_list/delete.php?', "GET", 'id=' + $(this).data('id'), loadTodo);
 	}
 
 }

@@ -30,5 +30,5 @@ if ($_SESSION['logged_on_user'])
     <?php
 }
 else
-    echo "ERROR\n";
+    echo "Pour chatter, veuillez vous logger";
 ?>

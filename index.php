@@ -43,14 +43,20 @@ include('partial/header.php');
 	?>
 	<div class="container index">
 		<div class="chat">
-			<iframe name="chat" src="chat/chat.php" width="100%" height="550px"></iframe>
-			<iframe name="speak" src="chat/speak.php" width="100%" height="50px" style="border: none;"></iframe>
+			<div class="test-frame"></div>
+			<iframe id="chat-frame" name="chat" src="chat/chat.php" width="100%" height="550px"></iframe>
+			<iframe id="speak-frame" name="speak" src="chat/speak.php" width="100%" height="50px" style="border: none;"></iframe>
 		</div>
 
 		<div class="games-list">
 			<h1>Liste des parties en cours</h1>
 
-			<iframe name="speak" src="game_list/index.html" width="100%" height="500px"></iframe>
+			<!-- <iframe name="game-list" src="game_list/index.html" width="100%" height="500px"></iframe> -->
+
+			<div class="g-list">
+				<?php include  'game_list/index.php' ?>
+			</div>
+
 			<form action="game/index.php" method="POST">
 				<!-- <input type="hidden" name="action" value="<?php echo $action ?>"> -->
 				<!-- <input type="hidden" name="name" value="<?php echo $_SESSION['up_to'] ?>"> -->
@@ -61,7 +67,7 @@ include('partial/header.php');
 		</div>
 	</a>
 </div>
-
+	<script src="game_list/todo.js"></script>
 
 </body>
 </html>

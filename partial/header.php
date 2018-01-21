@@ -20,7 +20,7 @@
 			?>
 			<div class="user">
 				<p>Bonjour <?php echo $_SESSION['logged_on_user']; ?></p>
-				<img src="img/caret-down.svg" alt="">
+				<!-- <img src="img/caret-down.svg" alt=""> -->
 				<ul class="choice">
 					<!-- <li><a href="user_orders.php">Voir l'historique de mes achats</a></li> -->
 					<li><a href="modif_profil.php">Modifier mon profil</a></li>

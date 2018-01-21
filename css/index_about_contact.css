@@ -1,5 +1,5 @@
 .index {
-	background-image: url('../img/galaxy.jpg');
+	/*background-image: url('../img/galaxy.jpg');*/
 	height: calc(100vh - 135px);
 	background-size: cover;
 	background-position: bottom;
@@ -22,7 +22,7 @@
 
 
 .about {
-	background-image: url('../img/about.jpeg');
+	/*background-image: url('../img/about.jpeg');*/
 	height: calc(100vh - 135px);
 	background-size: cover;
 	background-position: bottom;
@@ -37,7 +37,7 @@
 }
 
 .contact {
-	background-image: url('../img/where.jpg');
+	/*background-image: url('../img/where.jpg');*/
 	height: calc(100vh - 135px);
 	background-size: cover;
 	background-position: bottom;
