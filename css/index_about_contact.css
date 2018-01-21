@@ -1,28 +1,18 @@
 .index {
-	/*background-image: url('../img/galaxy.jpg');*/
 	height: calc(100vh - 135px);
 	background-size: cover;
 	background-position: bottom;
 	justify-content: space-evenly;
-}
-.index h1 {
-	/*font-size: 6em;*/
-	/*color: white;*/
-	margin: auto;
+	align-items: start;
 }
 .index h2 {
-	/*font-size: 2em;*/
-	/*color: white;*/
 	margin: auto;
 }
 .index > div {
 	flex: 1;
 }
 
-
-
 .about {
-	/*background-image: url('../img/about.jpeg');*/
 	height: calc(100vh - 135px);
 	background-size: cover;
 	background-position: bottom;

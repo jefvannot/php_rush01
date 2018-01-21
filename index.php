@@ -47,27 +47,25 @@ include('partial/header.php');
 			<iframe id="chat-frame" name="chat" src="chat/chat.php" width="100%" height="550px"></iframe>
 			<iframe id="speak-frame" name="speak" src="chat/speak.php" width="100%" height="50px" style="border: none;"></iframe>
 		</div>
-
-		<div class="games-list">
-			<h1>Liste des parties en cours</h1>
-
-			<!-- <iframe name="game-list" src="game_list/index.html" width="100%" height="500px"></iframe> -->
-
-			<div class="g-list">
-				<?php include  'game_list/index.php' ?>
-			</div>
-
-			<form action="game/index.php" method="POST">
-				<!-- <input type="hidden" name="action" value="<?php echo $action ?>"> -->
-				<!-- <input type="hidden" name="name" value="<?php echo $_SESSION['up_to'] ?>"> -->
-				<div class="flex-center new-game">
-					<input name="new-game" value="Nouvelle Partie" type="submit"/>
+		
+		<?php
+		if (isset($_SESSION['logged_on_user'])) {
+			?>
+			<div class="games-list">
+				<h1>Parties en cours</h1>
+				<div class="g-list">
+					<?php include  'game_list/index.php' ?>
 				</div>
-			</form>
-		</div>
-	</a>
-</div>
-	<script src="game_list/todo.js"></script>
+			</div>
+			<?php
+		}
+		else
+		{
+			echo "<h3>Pour jouer, veuillez vous connecter</h3>";
+		}
+		?>
 
+	</div>
+	<script src="game_list/todo.js"></script>
 </body>
 </html>

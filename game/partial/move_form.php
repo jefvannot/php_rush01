@@ -1,4 +1,4 @@
-<div class='player-ctrl' style='<?php if ($_SESSION['up_to'] == $player) echo "border: 2px solid #ff0000;"; ?>'>
+<div class='player-ctrl' style='<?php if ($db[$_GET['id']]['up_to'] == $player) echo "border: 2px solid #ff0000;"; ?>'>
 	<div class='title flex-center <?php echo $player ?>'>
 		<h4>Player <?php echo ucfirst($player) ?></h4>
 	</div>
@@ -8,21 +8,21 @@
 		<?php 
 
 		$pp_to_do = false;
-		if ($_SESSION['up_to'] == $player) {
+		if ($db[$_GET['id']]['up_to'] == $player) {
 			// if ($_SESSION['pp_to_speed'] !== null && $_SESSION['pp_to_shield'] !== null && $_SESSION['pp_to_weapon'] !== null)
 			// if (!$_SESSION['pp_set'])
 				$pp_to_do = true;
 
-			if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] != "" && $_SESSION['speed_dice'] != "played")
+			if (isset($db[$_GET['id']]['speed_dice']) && $db[$_GET['id']]['speed_dice'] != "" && $db[$_GET['id']]['speed_dice'] != "played")
 				$move_playable = true;
-			else if ($_SESSION['speed_dice'] == 'played' && $_SESSION['pp_to_speed'] > 0)
+			else if ($db[$_GET['id']]['speed_dice'] == 'played' && $db[$_GET['id']]['pp_to_speed'] > 0)
 				$move_playable = true;
 			else
 				$move_playable = false;
 
-			if (isset($_SESSION['weapon_dice']) && $_SESSION['weapon_dice'] != "" && $_SESSION['weapon_dice'] != "played")
+			if (isset($db[$_GET['id']]['weapon_dice']) && $db[$_GET['id']]['weapon_dice'] != "" && $db[$_GET['id']]['weapon_dice'] != "played")
 				$shoot_playable = true;
-			else if ($_SESSION['weapon_dice'] == 'played' && $_SESSION['pp_to_weapon'] > 0)
+			else if ($db[$_GET['id']]['weapon_dice'] == 'played' && $db[$_GET['id']]['pp_to_weapon'] > 0)
 				$shoot_playable = true;
 			else
 				$shoot_playable = false;
@@ -102,7 +102,7 @@
 		<p><?php printHealthStats($player, $arena); ?></p>
 	</div>
 
-	<div class="stats flex-around <?php if ($_SESSION['pp_to_shield'] && $_SESSION['up_to'] == $player) {echo $player;} ?>" >
+	<div class="stats flex-around <?php if ($db[$_GET['id']]['pp_to_shield'] && $db[$_GET['id']]['up_to'] == $player) {echo $player;} ?>" >
 		<p>Shield</p>
 		<p><?php printShieldStats($player, $arena); ?></p>
 	</div>

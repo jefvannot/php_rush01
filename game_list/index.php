@@ -82,7 +82,6 @@
 	<div class="content">
 		<div class="todo-list">
 			<button id="new">Créer une nouvelle partie</button>
-			<!-- <h1>Liste des parties en cours</h1> -->
 			<div id="ft_list"></div>
 		</div>
 	</div>

@@ -73,7 +73,7 @@ header {
 	width: calc(100% - 40px);
 	z-index: 4;
 
-	display: none;
+	/*display: none;*/
 }
 header div.logo {
 	text-align: center;

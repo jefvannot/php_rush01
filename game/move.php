@@ -26,31 +26,27 @@ if ($_POST['move'] == 'down') {
 }
 
 
-	$db_path = 'db/games';
-	$db = unserialize(file_get_contents($db_path));
-	$arena = $db[$_POST['game_id']]['arena'];
-	$arena->cleanShoot();
-		// print_r($db[$_POST['game_id']]);
+$db_path = 'db/games';
+$db = unserialize(file_get_contents($db_path));
+$arena = $db[$_POST['game_id']]['arena'];
+$arena->cleanShoot();
 		// echo "<br>";
-		// echo "<br>";
-		// print_r($db[$_POST['game_id']]['arena']);
-		// echo "<br>";
-		// echo "<br>";
-		// // print_r($db[0]['arena']);
-		// echo "<br>";
+// echo $db[$_POST['game_id']];
 		// echo "<br>";
 		// print_r($db);
+$fp = fopen($db_path, "w");
+flock($fp, LOCK_EX);
 
-if (isset($_SESSION['speed_dice']) && $_SESSION['speed_dice'] !== null)
+if (isset($db[$_POST['game_id']]['speed_dice']) && $db[$_POST['game_id']]['speed_dice'] !== null)
 {
-	$percent = $_SESSION['speed_dice'] / 6;
-	if ($_SESSION['pp_to_speed'] > 0)
+	$percent = $db[$_POST['game_id']]['speed_dice'] / 6;
+	if ($db[$_POST['game_id']]['pp_to_speed'] > 0)
 	{
-		$_SESSION['speed_dice'] = null;
-		$_SESSION['pp_to_speed']--;
+		$db[$_POST['game_id']]['speed_dice'] = null;
+		$db[$_POST['game_id']]['pp_to_speed']--;
 	}
 	else
-		$_SESSION['speed_dice'] = "played";
+		$db[$_POST['game_id']]['speed_dice'] = "played";
 }
 
 $ship = getShipByName($_POST['name'], $arena);
@@ -59,14 +55,13 @@ if ($ship)
 
 if ($ret != "destroyed")
 {
-		$fp = fopen($db_path, "w");
-		flock($fp, LOCK_EX);
-	$db[$_GET['id']]['ship'][$_SESSION['up_to']] = $ship;
-	// $db[$_GET['id']]['ship'][$_SESSION['up_to']] = $ret[pos_y];
-	file_put_contents($db_path, serialize($db));
-		fclose($fp);
+	$db[$_GET['id']]['ship'][$_POST['name']] = $ship;
 }
 
-header('Location: index.php?id='.$_POST['game_id']);
+file_put_contents($db_path, serialize($db));
+fclose($fp);
 
+header("Refresh:0; index.php?id=".$_POST['game_id']);
+
+header('Location: index.php?id='.$_POST['game_id']);
 ?>

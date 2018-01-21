@@ -62,10 +62,17 @@ hr {
 
 .content {
 	padding-top: 42px;
+	/*display: flex;*/
 
+}
+.board {
+	display: flex;
+	justify-content: center;
+	/*flex: 1;*/
 }
 .map {
 	padding: 20px;
+	height: 501px;
 }
 
 

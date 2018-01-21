@@ -72,12 +72,16 @@ function resetGame() {
 
 	$game['id'] = $_GET['id'];
 	$game['name'] = "name";
+	
+	$game['creator'] = $_SESSION['logged_on_user'];
+
 	$game['player_a'] = $_SESSION['logged_on_user'];
 	$game['player_b'] = "";
 
 	$game['ship']['a'] = $a;
 	$game['ship']['b'] = $b;
 
+	$game['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
 
 
 	// $game['ship']['a']['x'] = 0;
@@ -90,12 +94,20 @@ function resetGame() {
 	// $game['ship']['b']['shield_pts'] = 5;
 	$game['arena'] = $arena;
 
-	$_SESSION['game'] = $game;
+	// $_SESSION['game'] = $game;
 
+	// $_SESSION['game_id'] = $_GET['id'];
 
+	$game['shot_has_been_fired'] = "";
+	$game['speed_dice'] = null;
+	$game['weapon_dice'] = null;
+	$game['pp_set'] = false;
+	$game['pp_to_speed'] = null;
+	$game['pp_to_shield'] = null;
+	$game['pp_to_weapon'] = null;
 	// $_SESSION['up_to'] = "";
 
-
+// echo "test";
 
 	// if ($_POST['msg']) {
 	$db_path = 'db/games';
@@ -109,9 +121,9 @@ function resetGame() {
 	{
 		// echo "test A<br>";
 		// echo $_GET['id'];
-		$_SESSION['arena'] = $db[$k][arena];
-		$_SESSION['game'] = $db[$k][game];
-		$_SESSION['up_to'] = "";
+		// $_SESSION['arena'] = $db[$k][arena];
+		// $_SESSION['game'] = $db[$k][game];
+		// $_SESSION['up_to'] = "";
 
 	}
 	else
@@ -126,20 +138,13 @@ function resetGame() {
 		file_put_contents($db_path, serialize($db));
 		// file_put_contents($db_path, serialize($db), FILE_APPEND);
 		fclose($fp);
-		$_SESSION['arena'] = $arena;
-		$_SESSION['game'] = $game;
-		$_SESSION['up_to'] = "";
+		// $_SESSION['arena'] = $arena;
+		// $_SESSION['game'] = $game;
+		// $_SESSION['up_to'] = "";
 
 	}
 	// }
-	$_SESSION['game_id'] = $_GET['id'];
-	$_SESSION['shot_has_been_fired'] = "";
-	$_SESSION['speed_dice'] = null;
-	$_SESSION['weapon_dice'] = null;
-	$_SESSION['pp_set'] = false;
-	$_SESSION['pp_to_speed'] = null;
-	$_SESSION['pp_to_shield'] = null;
-	$_SESSION['pp_to_weapon'] = null;
+
 
 }
 

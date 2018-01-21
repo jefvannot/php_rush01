@@ -6,7 +6,9 @@ $db = unserialize(file_get_contents($file_path));
 // echo $_GET['id'];
 $arena = $db[$_GET['id']]['arena'];
 // print_r($arena);
-
+// echo $_GET['id'];
+// echo $arena;
+// echo "<br>";
 // print_r($db);
 // print_r($db[$_GET['id']]['ship']);
 // echo "<br>";
@@ -18,12 +20,12 @@ $arena = $db[$_GET['id']]['arena'];
 <table>
 	<?php
 	$row = 0;
-	while ($row < $_SESSION['arena']->getHeight()) {
+	while ($row < $arena->getHeight()) {
 		$column = 0;
 		?>
 		<tr>
 			<?php
-			while ( $column < $_SESSION['arena']->getWidth() ) {
+			while ( $column < $arena->getWidth() ) {
 				?>
 				<td class="<?= getElemOnMap($column, $row, $arena)?>"></td>
 				<?php
