@@ -33,7 +33,7 @@ class ScoutOfHorror extends Ship {
 			error_log("ship that was shot was null (fight function, ScoutOfHorror.class.php)");
 		else {
 			foreach ($tab as $k => $v) {
-				($v[who])->shipIsShot($v[nb_shot], $kwargs['arena']);
+				$v[who]->shipIsShot($v[nb_shot], $kwargs['arena']);
 			}
 		}
 	}
