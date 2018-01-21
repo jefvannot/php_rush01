@@ -3,11 +3,14 @@
 include_once('Arena.class.php');
 include_once('ScoutOfHorror.class.php');
 include_once('Obstacle.class.php');
+include_once('Player.class.php');
 
 @session_start();
 
 function resetGame() {
 	$arena = new Arena();
+	//$player1 = new Player('Alfred', 1, 'jaune');
+	//$player2 = new Player('Maurice', 2, 'rouge');
 
 	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
 	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
