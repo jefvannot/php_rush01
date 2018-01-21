@@ -6,6 +6,11 @@ include_once('Obstacle.class.php');
 
 session_start();
 
+$db_path = 'db/games';
+$db = unserialize(file_get_contents($db_path));
+$arena = $db[$_POST['game_id']]['arena'];
+$arena->cleanShoot();
+
 function getShipByName($name, $arena) {
 	foreach ($arena->getOnScreens() as $current) {
 		if ($name === $current->getName()) {
@@ -16,31 +21,47 @@ function getShipByName($name, $arena) {
 	return null;
 }
 
-if (isset($_SESSION['weapon_dice']) && $_SESSION['weapon_dice'] != null)
-{
-	$weapon_dice = $_SESSION['weapon_dice'];
+$fp = fopen($db_path, "w");
+flock($fp, LOCK_EX);
 
-	if ($_SESSION['pp_to_weapon'] > 0)
+if (isset($db[$_POST['game_id']]['weapon_dice']) && $db[$_POST['game_id']]['weapon_dice'] != null)
+{
+	$weapon_dice = $db[$_POST['game_id']]['weapon_dice'];
+
+	if ($db[$_POST['game_id']]['pp_to_weapon'] > 0)
 	{
-		$_SESSION['weapon_dice'] = null;
-		$_SESSION['pp_to_weapon']--;
+		$db[$_POST['game_id']]['weapon_dice'] = null;
+		$db[$_POST['game_id']]['pp_to_weapon']--;
 	}
 	else
-		$_SESSION['weapon_dice'] = "played";
+		$db[$_POST['game_id']]['weapon_dice'] = "played";
 }
 
-$shipThatShoots = getShipByName($_POST['name'], $_SESSION['arena']);
-if ($shipThatShoots)
+$ship = getShipByName($_POST['name'], $arena);
+if ($ship)
 {
-	$shipThatShoots->fight(array("dice_roll" => $weapon_dice,
-									"width" => $shipThatShoots->getWidth(),
-									"height" => $shipThatShoots->getHeight(),
-									"position_x" => $shipThatShoots->getPositionX(),
-									"position_y" => $shipThatShoots->getPositionY(),
-									"arena" => $_SESSION['arena'],
-									"direction" => $_POST['shoot']));
+	$ship->fight(array("dice_roll" => $weapon_dice,
+		"width" => $ship->getWidth(),
+		"height" => $ship->getHeight(),
+		"position_x" => $ship->getPositionX(),
+		"position_y" => $ship->getPositionY(),
+		"arena" => $arena,
+		"direction" => $_POST['shoot']));
+
+	
+	$db[$_POST['game_id']]['arena'] = $arena;
+
+
 }
+
+file_put_contents($db_path, serialize($db));
+fclose($fp);
+
 $_SESSION['shot_has_been_fired'] = 'ON';
-header('Location: index.php');
+// echo "<br>";
+// echo "<br>";
+// print_r($arena);
+// header('Location: index.php');
+header('Location: index.php?id='.$_POST['game_id']);
 
 ?>

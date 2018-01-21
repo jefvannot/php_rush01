@@ -9,8 +9,8 @@ include_once('Obstacle.class.php');
 function resetGame() {
 	$arena = new Arena();
 
-	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
-	$arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
+	$a = $arena->addOnScreen( new ScoutOfHorror(0, 0, 'a') );
+	$b = $arena->addOnScreen( new ScoutOfHorror($arena->getWidth() - 4, $arena->getHeight() - 2, 'b') );
 
 	// space invader 1
 	$arena->addOnScreen( new Obstacle(40, 30, 1, 1) );
@@ -68,19 +68,44 @@ function resetGame() {
 
 
 
-    $_SESSION['arena'] = $arena;
+	$db_path = 'db/games';
+	if (!file_exists('db'))
+		mkdir("db");
+	if (!file_exists($db_path))
+		file_put_contents($db_path, null);
+	$db = unserialize(file_get_contents($db_path));
 
-    $_SESSION['up_to'] = "";
+	if (!$db || !in_array($_GET['id'], array_column($db, 'id')))
+	{
+		// echo "test B<br>";
+		echo "test B<br>";
+		$fp = fopen($db_path, "w");
+		flock($fp, LOCK_EX);
 
-    $_SESSION['shot_has_been_fired'] = "";
+		$game['id'] = $_GET['id'];
+		$game['name'] = "name";
 
-    $_SESSION['speed_dice'] = null;
-    $_SESSION['weapon_dice'] = null;
+		$game['creator'] = $_SESSION['logged_on_user'];
 
-    $_SESSION['pp_set'] = false;
-    $_SESSION['pp_to_speed'] = null;
-	$_SESSION['pp_to_shield'] = null;
-	$_SESSION['pp_to_weapon'] = null;
+		$game['ship']['a'] = $a;
+		$game['ship']['b'] = $b;
+
+		$game['up_to'] = (mt_rand(1, 2) == 1) ? "a" : "b";
+		$game['arena'] = $arena;
+
+		$game['shot_has_been_fired'] = "";
+		$game['speed_dice'] = null;
+		$game['weapon_dice'] = null;
+		$game['pp_set'] = false;
+		$game['pp_to_speed'] = null;
+		$game['pp_to_shield'] = null;
+		$game['pp_to_weapon'] = null;
+		
+		$db[] = $game;
+		file_put_contents($db_path, serialize($db));
+		fclose($fp);
+
+	}
 }
 
 ?>

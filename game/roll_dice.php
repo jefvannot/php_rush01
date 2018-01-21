@@ -2,12 +2,20 @@
 
 @session_start();
 
+$db_path = 'db/games';
+$db = unserialize(file_get_contents($db_path));
+$arena = $db[$_POST['game_id']]['arena'];
+
 if ($_POST['action'] == 'move')
-	$_SESSION['speed_dice'] = mt_rand(1, 6);
+	$db[$_POST['game_id']]['speed_dice'] = mt_rand(1, 6);
 
 if ($_POST['action'] == 'shoot')
-	$_SESSION['weapon_dice'] = mt_rand(1, 6);
+	$db[$_POST['game_id']]['weapon_dice'] = mt_rand(1, 6);
 
-header('Location: index.php');
+file_put_contents($db_path, serialize($db));
+fclose($fp);
+
+// header('Location: index.php');
+header('Location: index.php?id='.$_POST['game_id']);
 
 ?>

@@ -15,7 +15,7 @@ function loadTodo(){
 		success : function(data){
 			data = jQuery.parseJSON(data);
 			jQuery.each(data, function(id, val) {
-				ft_list.prepend($('<a href="../game/index.php?id=' + id + '"><div data-id="' + id + '">' + val + '</div></a>'));
+				ft_list.prepend($('<a href="./game/index.php?id=' + id + '"><div data-id="' + id + '">' + val + '</div></a>'));
 			});
 		}
 	});

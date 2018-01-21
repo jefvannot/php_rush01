@@ -5,6 +5,9 @@ if (file_exists("list.csv") && isset($_GET["todo"]) && $_GET["todo"] !== null)
 	foreach ($csv_file as $line)
 		$tmp[] = explode(";", $line, 2)[0];
 	$id = ($tmp) ? max($tmp) + 1 : 0;
+
+
+	
 	file_put_contents("list.csv", $id . ";" . $_GET["todo"] . PHP_EOL, FILE_APPEND);
 }
 ?>

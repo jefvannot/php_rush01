@@ -93,9 +93,11 @@ public function move($x, $y, $arena) {
 		}
 		if ($content) {
 			$arena->destroyShip($this);
+			return "destroyed";
 		} else {
 			$this->position_x += $dx;
 			$this->position_y += $dy;
+			return array('pos_x' => $this->position_x, 'pos_y' => $this->position_y);
 		}
 	}
 }
