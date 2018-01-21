@@ -130,7 +130,7 @@ include('../partial/header.php');
 
 <?php
 if ($_SESSION['shot_has_been_fired'] == "ON") {
-	($_SESSION['arena'])->cleanShoot();
+	$_SESSION['arena']->cleanShoot();
 	$_SESSION['shot_has_been_fired'] = "";
 	// header('Location: index.php');
 } 
