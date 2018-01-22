@@ -92,7 +92,7 @@ include('../partial/header.php');
 
 		<div class="flex-center">
 			<div class='flex-center'>
-				<?php $player = 'a'; include('partial/move_form.php'); ?>
+				<?php $player = 'a'; $myplayer = $_SESSION['player1']; include('partial/move_form.php'); ?>
 			</div>
 
 			<div class='flex-center map'>
@@ -103,7 +103,7 @@ include('../partial/header.php');
 				<?php include('partial/floor.php'); ?>
 			</div>
 			<div class='flex-center'>
-					<?php $player = 'b'; include('partial/move_form.php'); ?>
+					<?php $player = 'b'; $myplayer = $_SESSION['player2']; include('partial/move_form.php'); ?>
 				</div>
 		</div>
 

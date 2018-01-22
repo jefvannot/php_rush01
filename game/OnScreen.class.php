@@ -8,6 +8,7 @@ abstract class OnScreen {
 	protected $width;
 	protected $height;
 	protected $team;
+	protected $sprite;
 
 	public function __construct( array $kwargs ) {
 		if ( !isset( $kwargs['name'] ) 
@@ -15,7 +16,8 @@ abstract class OnScreen {
 				|| !isset( $kwargs['y'] )
 				|| !isset( $kwargs['width'] )
 				|| !isset( $kwargs['height'] )
-				|| !isset( $kwargs['team'] ) ) {
+				|| !isset( $kwargs['team'] )
+				|| !isset( $kwargs['sprite'] ) ) {
 			$errmsg = get_class($this) . " error: incorrect parameters to constructor";
 			throw new Exception($errmsg);
 			error_log($errmsg . PHP_EOL );
@@ -30,6 +32,7 @@ abstract class OnScreen {
 		$this->width = $kwargs['width'];
 		$this->height = $kwargs['height'];
 		$this->team = $kwargs['team'];
+		$this->sprite = $kwargs['sprite'];
 	}
 	
 	public function isOccupying($x, $y) {
@@ -45,6 +48,7 @@ abstract class OnScreen {
 	public function getWidth()		{return $this->width;}
 	public function getHeight()		{return $this->height;}
 	public function getTeam()		{return $this->team;}
+	public function getSprite()		{return $this->sprite;}
 }
 
 ?>

@@ -9,8 +9,8 @@ include_once('Player.class.php');
 
 function resetGame() {
 	$arena = new Arena();
-	$player1 = new Player(array('Alfred', 'a', 'jaune'));
-	$player2 = new Player(array('Maurice', 'b', 'rouge'));
+	$player1 = new Player(0, 'Alfred', 'a', 'jaune');
+	$player2 = new Player(1, 'Maurice', 'b', 'rouge');
 	//echo("fffffffffffffffffffffffffff" . $player1->getName());
 
 	$arena->addOnScreen( new ScoutOfHorror(0, 0, 'Gal_leath', 'img/ship/tau/Gal_leath.jpg', $player1->getTeam()) );

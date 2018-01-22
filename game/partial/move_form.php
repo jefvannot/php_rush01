@@ -1,6 +1,7 @@
 <div class='player-ctrl' style='<?php if ($_SESSION['up_to'] == $player) echo "border: 2px solid #ff0000;"; ?>'>
 	<div class='title flex-center <?php echo $player ?>'>
-		<h4>Player <?php echo ucfirst($player) ?></h4>
+		<h4>Player <?php echo ucfirst($player) ?></h4>&nbsp;-&nbsp;
+		<p><?php echo($myplayer->getName()); ?></p>
 	</div>
 	<hr>
 
@@ -29,20 +30,38 @@
 		}
 
 		$pp_to_spend = getPPToSpend($player, $_SESSION['arena']);
-
+		
+		
+		$all_boats = getArrayShipByPlayer($myplayer->getTeam(), $_SESSION['arena']);
+			//echo("numero player:" . $_SESSION['player1'] . PHP_EOL);
+		//print_r( $_SESSION['player1'] );
+		//print_r( $all_boats );
+		$l = 0;
+		$r = 0;
 		?>
+		<script>
+			player = <?php echo($player === 'a')?(0):(1); ?>;
+			function next_boat()
+			{
+				imgnumb = (player)?(l++):(r++);
+				document.getElementById('imgboat_<?php echo($player === 'a')?(0):(1); ?>').src = <?php echo '"' . $all_boats[?>
+				<?php ]->getSprite() ?>";
+			}
+			function prev_boat()
+			{
+				document.getElementById('imgboat_<?php echo ($player === 'a')?(0):(1);  ?>').src = <?php echo '"' . $all_boats[
+				($player === 'a')?($l--):($r--)
+				]->getSprite() ?>";
+			}
+		</script>
 		<div class="flex-center">
 			<p>Select a boat:</p>
 		</div>
-		<img class="flex-center boat_img" src="<?php echo $sprite; ?>">
+		<img id="imgboat_<?php echo ($player === 'a')?(0):(1); ?>" class="flex-center boat_img" src="<?php echo $all_boats[$l]->getSprite(); ?>">
 		<div class="flex-center">
-			<?php
-			//$all_boats = getArrayShipByPlayer($this->player1->getName(), $arena);
-			//echo("numero player:" . $_SESSION['player1'] . PHP_EOL);
-			//print_r( $_SESSION['player1'] );
-			?>
-			<p><a id="lb_<?php echo ($player === 'a')?(0):(1); ?>" href="#"><?php echo "<</a>".$curr_boat; ?>
-			<a id="rb_<?php echo ($player === 'a')?(0):(1); ?>" href="#"><?php echo "></a>".$curr_boat; ?>
+			<p><a id="lb_<?php echo ($player === 'a')?(0):(1); ?>" onclick="prev_boat();" href="#"><?php echo "<</a>".$curr_boat; ?>
+			<?php echo( $all_boats[$l]->getName() ); ?>
+			<a id="rb_<?php echo ($player === 'a')?(0):(1); ?>" onclick="next_boat();" href="#"><?php echo "></a>".$curr_boat; ?>
 			</p>
 		</div>
 		<div class="flex-center pp-input">

@@ -1,0 +1,10 @@
+<- Team-------------------------------------------------------------------
+The Team object represents any object operating on the arena.
+
+Its privates properties are as follow: name, team, color.
+Its constructor method needs them all.
+
+All attributes have getters.
+
+It also has a doc() method.
+---------------------------------------------------------------------- Player ->
