@@ -16,9 +16,13 @@ abstract class OnScreen {
 				|| !isset( $kwargs['width'] )
 				|| !isset( $kwargs['height'] )
 				|| !isset( $kwargs['team'] ) ) {
-			error_log("OnScreen error: incorrect parameters to constructor"
+			$errmsg = get_class($this) . " error: incorrect parameters to constructor";
+			throw new Exception($errmsg);
+			error_log($errmsg . PHP_EOL );
+			/*
+			error_log(get_class($this) . " error: incorrect parameters to constructor"
 						. PHP_EOL );
-			exit(1);
+			exit(1);*/
 		}
 		$this->name = $kwargs['name'];
 		$this->position_x = $kwargs['x'];

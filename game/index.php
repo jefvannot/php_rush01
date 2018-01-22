@@ -35,19 +35,20 @@ if ($_SESSION['speed_dice'] == "played"
 }
 
 function getElemOnMap($x, $y, $arena) {
+	$who = null;
 	foreach ($arena->getOnScreens() as $elem) {
 		if ($elem->isOccupying($x, $y)) {
 			$who .= $elem->getName()." ";
 		}
 	}
-	if ($who)
+	if ($who !== null)
 		return $who;
 	return "empty";
 }
 
 function getPPToSpend($name, $arena) {
 	$ship = getShipByName($name, $arena);
-	if ($ship) {
+	if (isset($ship)) {
 		return $ship->getPP();
 	}
 	return NULL;

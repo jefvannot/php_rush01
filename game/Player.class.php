@@ -6,17 +6,17 @@ class Player {
 	protected $team;
 	protected $color;
 
-	public function __construct( array $kwargs ) {
-		if ( !isset( $kwargs['name'] ) 
-				|| !isset( $kwargs['team'] )
-				|| !isset( $kwargs['color'] ) ) {
-			error_log("OnScreen error: incorrect parameters to constructor"
-						. PHP_EOL );
-			exit(1);
+	public function __construct($name, $team, $color) {
+		if ( !isset( $name ) 
+				|| !isset( $team )
+				|| !isset( $color ) ) {
+			$errmsg = get_class($this) . " error: incorrect parameters to constructor";
+			throw new Exception($errmsg);
+			//error_log($errmsg . PHP_EOL); exit(1);
 		}
-		$this->name = $kwargs['name'];
-		$this->team = $kwargs['team'];
-		$this->color = $kwargs['color'];
+		$this->name = $name;
+		$this->team = $team;
+		$this->color = $color;
 	}
 
 	public function getName()		{return $this->name;}
