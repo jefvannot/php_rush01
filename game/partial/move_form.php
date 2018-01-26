@@ -39,19 +39,17 @@
 		$l = 0;
 		$r = 0;
 		?>
-		<script>
-			player = <?php echo($player === 'a')?(0):(1); ?>;
+		<script src="../js/inter.js">
+			//player = <?php echo($player === 'a')?(0):(1); ?>;
 			function next_boat()
 			{
-				imgnumb = (player)?(l++):(r++);
-				document.getElementById('imgboat_<?php echo($player === 'a')?(0):(1); ?>').src = <?php echo '"' . $all_boats[?>
-				<?php ]->getSprite() ?>";
+				//imgnumb = (player)?(l++):(r++);
+				document.getElementById('imgboat_<?php echo($player === 'a')?(0):(1); ?>').src = <?php echo '"' . $all_boats[($player === 'a')?($l++):($r++)]->getSprite() ?>";
 			}
 			function prev_boat()
 			{
-				document.getElementById('imgboat_<?php echo ($player === 'a')?(0):(1);  ?>').src = <?php echo '"' . $all_boats[
-				($player === 'a')?($l--):($r--)
-				]->getSprite() ?>";
+				if ($l !== 0 && $r !== 0)
+					document.getElementById('imgboat_<?php echo($player === 'a')?(0):(1); ?>').src = <?php echo '"' . $all_boats[($player === 'a')?($l--):($r--)]->getSprite() ?>";
 			}
 		</script>
 		<div class="flex-center">
